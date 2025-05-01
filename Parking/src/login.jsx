@@ -20,17 +20,41 @@ function SignupForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    
+    // Simple validation
+    if (formData.password !== formData.confirm_password) {
+      alert("Passwords don't match!");
+      return;
+    }
+  
+    try {
+      const response = await fetch('http://localhost:5000/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      
+      const data = await response.json();
+      if (response.ok) {
+        alert('Registration successful!');
+        // Redirect to login or dashboard
+      } else {
+        throw new Error(data.error || 'Registration failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert(error.message);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center">
+    <div className=" bg-black flex items-center justify-center mr-10 transform translate-x-140 ">
       {/* Centered Form Container */}
       <form 
         onSubmit={handleSubmit}
-        className="max-w-md w-full bg-gradient-to-br from-indigo-600 via-purple-500 to-pink-500 rounded-xl shadow-2xl overflow-hidden border-2 border-white/30 p-8 animate-fadeIn"
+        className="max-w-md w-full bg-gradient-to-br from-indigo-600 via-purple-500 to-pink-500 rounded-xl shadow-2xl overflow-hidden border-2 border-white/30 p-20 animate-fadeIn"
       >
         {/* Back to Home Button */}
         <button 
