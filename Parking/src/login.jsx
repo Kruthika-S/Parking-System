@@ -1,3 +1,4 @@
+// login.jsx
 import { useState } from 'react';
 import './App.css';
 
@@ -22,20 +23,17 @@ function SignupForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     // Simple validation
     if (formData.password !== formData.confirm_password) {
       alert("Passwords don't match!");
       return;
     }
-  
     try {
       const response = await fetch('http://localhost:5000/api/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
-      
       const data = await response.json();
       if (response.ok) {
         alert('Registration successful!');
@@ -50,7 +48,7 @@ function SignupForm() {
   };
 
   return (
-    <div className=" bg-black flex items-center justify-center mr-10 transform translate-x-140 ">
+    <div className="bg-black flex items-center justify-center mr-10 transform translate-x-140">
       {/* Centered Form Container */}
       <form 
         onSubmit={handleSubmit}
@@ -63,12 +61,10 @@ function SignupForm() {
         >
           ← Back to Home
         </button>
-
         {/* Form Header */}
         <h2 className="text-3xl font-bold mb-8 text-center drop-shadow-lg">
           Create Your Account
         </h2>
-
         {/* Form Fields */}
         <div className="space-y-6">
           {/* Name Field */}
@@ -84,7 +80,6 @@ function SignupForm() {
               required
             />
           </div>
-
           {/* Age Field */}
           <div>
             <label className="block text-white/80 mb-2">Age</label>
@@ -99,7 +94,6 @@ function SignupForm() {
               required
             />
           </div>
-
           {/* Email Field */}
           <div>
             <label className="block text-white/80 mb-2">Email Address</label>
@@ -113,7 +107,6 @@ function SignupForm() {
               required
             />
           </div>
-
           {/* Mobile Number Field */}
           <div>
             <label className="block text-white/80 mb-2">Mobile Number</label>
@@ -127,7 +120,6 @@ function SignupForm() {
               required
             />
           </div>
-
           {/* Password Field */}
           <div>
             <label className="block text-white/80 mb-2">Password</label>
@@ -141,7 +133,6 @@ function SignupForm() {
               required
             />
           </div>
-
           {/* Confirm Password Field */}
           <div>
             <label className="block text-white/80 mb-2">Confirm Password</label>
@@ -155,7 +146,6 @@ function SignupForm() {
               required
             />
           </div>
-
           {/* Gender Field */}
           <div>
             <label className="block text-white/80 mb-2">Gender</label>
@@ -176,7 +166,6 @@ function SignupForm() {
               ))}
             </div>
           </div>
-
           {/* Submit Button */}
           <button
             type="submit"

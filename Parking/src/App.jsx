@@ -1,6 +1,6 @@
+// App.jsx
 import { useState, useEffect } from 'react';
 import './App.css';
-
 // Image imports
 import locationPin from './assets/locationPin.png';
 import compass from './assets/compass.png';
@@ -30,7 +30,7 @@ function App() {
   }, []);
 
   const getImage = (type) => {
-    switch(type) {
+    switch (type) {
       case 'pin': return locationPin;
       case 'car': return car;
       case 'parking': return parking;
@@ -55,14 +55,12 @@ function App() {
             style={{ animation: `spin ${element.duration * 2}s linear infinite`, animationDelay: `${element.delay}s` }} />
         </div>
       ))}
-
       {/* Pulsing circles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-80 h-80 rounded-full bg-purple-500/20 animate-pulse-slow"></div>
         <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-pink-500/15 animate-pulse-slower"></div>
         <div className="absolute top-1/3 right-1/3 w-64 h-64 rounded-full bg-indigo-500/25 animate-pulse-fast"></div>
       </div>
-
       {/* Main content wrapper */}
       <div className="relative z-10 w-full flex flex-col items-center justify-center px-4">
         {/* Header */}
@@ -74,25 +72,26 @@ function App() {
             <button onClick={() => window.location.href = '/login'} className="px-8 py-4 rounded-full shadow-xl bg-black/30 text-white font-bold hover:bg-black/40 transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-2xl hover:-translate-y-1 border-2 border-white/30 animate-bounce-slow">
               Login
             </button>
-            <button onClick={() => setActiveButton("signup")} className="px-8 py-4 rounded-full shadow-xl bg-black/30 text-white font-bold hover:bg-black/40 transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-2xl hover:-translate-y-1 border-2 border-white/30 animate-bounce-slower">
-              Sign Up
-            </button>
+            <button 
+  onClick={() => window.location.href = '/signup'} 
+  className="px-8 py-4 rounded-full shadow-xl bg-black/30 text-white font-bold hover:bg-black/40 transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-2xl hover:-translate-y-1 border-2 border-white/30 animate-bounce-slower"
+>
+  Sign Up
+</button>
           </div>
         </header>
-
         {/* Main content */}
         <main className="w-full max-w-6xl text-center animate-fadeInUp">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-2xl animate-charcter">
             Discover Amazing Places
           </h1>
           <p className="text-2xl mb-8 text-white/90 animate-text-glow">
-            Find your perfect spot wherever you go. Join thousands of happy explorers!
+            Find your perfect spot To Park. Join thousands of Spot here!
           </p>
           <button onClick={() => setActiveButton("findSpot")} className="px-16 py-6 rounded-full shadow-2xl text-3xl font-bold bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 transition-all duration-500 hover:scale-110 active:scale-95 hover:shadow-[0_0_30px_rgba(255,50,50,0.8)] border-4 border-white/30 text-white animate-pulse hover:animate-none mb-12">
             <span className="relative z-10">Find Your Spot</span>
           </button>
         </main>
-
         {/* Footer */}
         <footer className="w-full max-w-6xl animate-slideUp">
           <button onClick={() => setActiveButton("contact")} className="px-8 py-4 rounded-full shadow-xl bg-pink-500 text-white font-bold hover:bg-pink-600 transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-2xl hover:-translate-y-1 border-2 border-pink-400/50 animate-wiggle-slow">
@@ -100,12 +99,10 @@ function App() {
           </button>
         </footer>
       </div>
-
       {/* Car animation */}
       <div className="absolute bottom-0 left-0 w-40 h-40 animate-drive">
         <img src={car} alt="Car" className="w-full h-full object-contain" />
       </div>
-
       {/* Notification */}
       {activeButton && (
         <div className="fixed bottom-10 right-10 bg-black/80 text-white px-6 py-3 rounded-lg backdrop-blur-sm border-2 border-white/20 animate-fadeInPop shadow-xl">
