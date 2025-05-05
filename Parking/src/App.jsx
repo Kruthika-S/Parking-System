@@ -94,9 +94,12 @@ function App() {
         </main>
         {/* Footer */}
         <footer className="w-full max-w-6xl animate-slideUp">
-          <button onClick={() => setActiveButton("contact")} className="px-8 py-4 rounded-full shadow-xl bg-pink-500 text-white font-bold hover:bg-pink-600 transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-2xl hover:-translate-y-1 border-2 border-pink-400/50 animate-wiggle-slow">
-            Contact Us
-          </button>
+    <button 
+      onClick={() => window.location.href = '/ContactUs'}
+      className="px-8 py-4 rounded-full shadow-xl bg-pink-500 text-white font-bold hover:bg-pink-600 transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-2xl hover:-translate-y-1 border-2 border-pink-400/50 animate-wiggle-slow"
+    >
+      Contact Us
+    </button>
         </footer>
       </div>
       {/* Car animation */}
