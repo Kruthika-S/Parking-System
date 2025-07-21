@@ -136,11 +136,11 @@ function ContactUs() {
               <h3 className="text-xl font-bold text-indigo-800 mb-3">Ready to book your parking spot?</h3>
               <p className="text-gray-600 mb-4">Join thousands of happy parkers who save time and stress every day</p>
               <button
-                onClick={() => navigate('/find-spot')}
-                className="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors"
-              >
-                Find Available Spots Now
-              </button>
+            onClick={() => navigate('/findSpot')}
+          className="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors"
+          >
+           Find Available Spots Now
+          </button>
             </div>
           </div>
         </div>
